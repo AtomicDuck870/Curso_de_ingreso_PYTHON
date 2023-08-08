@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+Nombre y apellido: Erik Corimayo
+Ejercicio: Match_09
+
 Una agencia de viajes cobra $15.000 por cada estadía como base. 
 Luego para calcular las tarifas total realiza el siguiente cálculo, 
 en función de la estación del año y del destino elegido:
@@ -52,7 +55,36 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        precio_base = 15000
+        estacion = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+
+        match estacion:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+                        porcentaje = 1.20
+                    case "Cataratas" | "Cordoba":
+                        porcentaje = 0.90
+                    case "Mar del plata":
+                        porcentaje = 0.80
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+                        porcentaje = 0.80
+                    case "Cataratas" | "Cordoba":
+                        porcentaje = 1.10
+                    case "Mar del plata":
+                        porcentaje = 1.20
+            case "Primavera" | "Otoño":
+                match destino:
+                    case "Bariloche" | "Cataratas" | "Mar del plata":
+                        porcentaje = 1.10
+                    case "Cordoba":
+                        porcentaje = 1
+
+        calculo_final = precio_base * porcentaje
+        alert(title="Precio final",message=estacion+" en "+destino+" = "+str(calculo_final))
             
     
 if __name__ == "__main__":

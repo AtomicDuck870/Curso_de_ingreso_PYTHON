@@ -5,6 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+nombre y apellido: Erik corimayo
+Ejercicio TP_01
+
 Enunciado:
 Para el departamento de facturación:
     A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
@@ -48,7 +51,8 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        precio_1 = self.txt_importe_1.get()
+        precio_2=
 
     def btn_promedio_on_click(self):
         pass

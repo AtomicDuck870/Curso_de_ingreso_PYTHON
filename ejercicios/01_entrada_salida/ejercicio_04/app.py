@@ -5,14 +5,13 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Erik
+apellido: Corimayo
 ---
 Ejercicio: entrada_salida_04
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener un nombre utilizando el Dialog Prompt 
-y luego mostrarlo en la caja de texto txt_nombre (.delete / .insert )
+Al presionar el botón  'Mostrar', se deberá obtener un nombre utilizando el Dialog Prompt y luego mostrarlo en la caja de texto txt_nombre (.delete / .insert )
 '''
 
 class App(customtkinter.CTk):
@@ -34,10 +33,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        #tome el nombre por prompt y la guarde en la variable nombre
+        nombre=prompt(title="Ejercicio 4",prompt="Ingrese su nombre")
+        #aca puse el nombre en la caja de texto
+        self.txt_nombre.delete(0,10000)
+        self.txt_nombre.insert(0, nombre)
+
+        #pass, el pass ya no sirve
         
     
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

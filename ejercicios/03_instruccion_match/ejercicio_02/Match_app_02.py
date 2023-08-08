@@ -6,6 +6,11 @@ import customtkinter
 
 
 '''
+Nombre: Erik
+Apellido: Corimayo
+
+Ejercicio: Match_2
+
 Enunciado:
 Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
 en función del mes seleccionado:
@@ -36,7 +41,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+
+        match mes:
+            case "Junio" | "Julio" | "Agosto" | "Septiembre":
+                mensaje = "¡Abrígate que hace frío!"
+            case "Marzo" | "Abril" | "Mayo" | "Junio":
+                mensaje = "Falta para el invierno.."
+            case "Octubre" | "Noviembre" | "Diciembre" | "Enero" | "Febrero":
+                mensaje = "¡Ya pasamos frío, ahora calor!"
+
+        alert(title=mes,message=mensaje)
     
     
 if __name__ == "__main__":
